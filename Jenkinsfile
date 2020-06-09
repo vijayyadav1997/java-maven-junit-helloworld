@@ -5,16 +5,16 @@ pipeline {
       maven "maven"
    }
 
-   stages {
-       stage('test'){
-          steps{
+  stages {
+//       stage('test'){
+//          steps{
     //        git 'https://github.com/vijayyadav1997/sample-java-jenkins.git'
-            sh "mvn  test"
-          }
-      }
+//            sh "mvn  test"
+//          } -Dmaven.test.failure.ignore=true
+//      }
       stage('Build') {
          steps {
-            sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            sh "mvn clean install"
          }
       }
    }
